@@ -18,6 +18,8 @@ import { IGodFather } from "src/types/GodFather";
 import { ActionGodFather } from "./components/ActionGodFather";
 import { NotificationContext } from "src/contexts/NotificationContext";
 import { useContext } from "react";
+import { generateGodFatherPDF } from "src/services/printer/godFather";
+import { FilePdf } from "@phosphor-icons/react";
 
 const PRODUCTS: IGodFather[] = [
   {
@@ -51,15 +53,32 @@ export default function GodFather() {
         <Typography variant="h3" fontWeight="bold">
           Padrinhos
         </Typography>
-        <Button
-          startIcon={<DefaultIcons.AddIcon />}
-          onClick={() => {
-            setGodFather(undefined);
-            setOpenAction(true);
-          }}
-        >
-          Adicionar padrinho
-        </Button>
+        <Box display="flex" flexDirection="row" gap={1}>
+          <Button
+            startIcon={<FilePdf weight="duotone" />}
+            variant="outlined"
+            onClick={() => {
+              generateGodFatherPDF({
+                header: {
+                  nome: "Prefeitura Municipal de Nova Mutum - MT",
+                  cnpj: "00.000.000/0000-00",
+                },
+                godFathers,
+              });
+            }}
+          >
+            PDF
+          </Button>
+          <Button
+            startIcon={<DefaultIcons.AddIcon />}
+            onClick={() => {
+              setGodFather(undefined);
+              setOpenAction(true);
+            }}
+          >
+            Adicionar padrinho
+          </Button>
+        </Box>
       </Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

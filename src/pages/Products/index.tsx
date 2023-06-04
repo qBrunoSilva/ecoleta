@@ -19,11 +19,19 @@ import { ActionProduct } from "./components/ActionProduct";
 import { NotificationContext } from "src/contexts/NotificationContext";
 
 import { useContext } from "react";
+import { generateProductPDF } from "src/services/printer/product";
+import { FilePdf } from "@phosphor-icons/react";
 
 const PRODUCTS: IProduct[] = [
   {
     id: 1,
     name: "Leite 1L",
+    minQuantity: 1,
+    quantity: 1,
+  },
+  {
+    id: 2,
+    name: "Arroz 5Kg",
     minQuantity: 1,
     quantity: 1,
   },
@@ -51,15 +59,32 @@ export default function ProductsPage() {
         <Typography variant="h3" fontWeight="bold">
           Produtos
         </Typography>
-        <Button
-          startIcon={<DefaultIcons.AddIcon />}
-          onClick={() => {
-            setProduct(undefined);
-            setOpenAction(true);
-          }}
-        >
-          Adicionar produto
-        </Button>
+        <Box display="flex" flexDirection="row" gap={1}>
+          <Button
+            startIcon={<FilePdf weight="duotone" />}
+            variant="outlined"
+            onClick={() => {
+              generateProductPDF({
+                header: {
+                  nome: "Prefeitura Municipal de Nova Mutum - MT",
+                  cnpj: "00.000.000/0000-00",
+                },
+                products,
+              });
+            }}
+          >
+            PDF
+          </Button>
+          <Button
+            startIcon={<DefaultIcons.AddIcon />}
+            onClick={() => {
+              setProduct(undefined);
+              setOpenAction(true);
+            }}
+          >
+            Adicionar produto
+          </Button>
+        </Box>
       </Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -84,6 +109,23 @@ export default function ProductsPage() {
                   <TableCell>{row.quantity}</TableCell>
                   <TableCell>{row.minQuantity}</TableCell>
                   <TableCell>
+                    <IconButton
+                      size="small"
+                      color="info"
+                      onClick={() => {
+                        if (row.quantity === 0) return;
+                        setProducts((prev) =>
+                          prev.map((p) => {
+                            if (p.id === row.id) {
+                              return { ...p, quantity: p.quantity - 1 };
+                            }
+                            return p;
+                          })
+                        );
+                      }}
+                    >
+                      <DefaultIcons.CardapioIcon weight="duotone" />
+                    </IconButton>
                     <IconButton
                       size="small"
                       color="info"
