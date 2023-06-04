@@ -11,6 +11,7 @@ import {
   TableHead,
   TableRow,
   Typography,
+  useTheme,
 } from "@mui/material";
 import { useLayoutEffect, useState } from "react";
 import { DefaultIcons } from "src/constants/Icons";
@@ -19,12 +20,18 @@ import { ActionGodFather } from "./components/ActionGodFather";
 import { NotificationContext } from "src/contexts/NotificationContext";
 import { useContext } from "react";
 import { generateGodFatherPDF } from "src/services/printer/godFather";
-import { FilePdf } from "@phosphor-icons/react";
+import { Check, FilePdf } from "@phosphor-icons/react";
 
-const PRODUCTS: IGodFather[] = [
+const PADRI: IGodFather[] = [
   {
     id: 1,
-    name: "Leite 1L",
+    name: "Empresa 1",
+    cnpj: "00.000.000/0000-00",
+    contribution: 9,
+  },
+  {
+    id: 2,
+    name: "Empresa 2",
     cnpj: "00.000.000/0000-00",
     contribution: 1,
   },
@@ -32,14 +39,14 @@ const PRODUCTS: IGodFather[] = [
 
 export default function GodFather() {
   const { showNotification } = useContext(NotificationContext);
+  const theme = useTheme();
 
   const [godFathers, setGodFathers] = useState<IGodFather[]>([]);
-
   const [openAction, setOpenAction] = useState(false);
   const [godFather, setGodFather] = useState<IGodFather | undefined>(undefined);
 
   useLayoutEffect(() => {
-    setGodFathers(PRODUCTS);
+    setGodFathers(PADRI);
   }, []);
 
   return (
@@ -87,6 +94,7 @@ export default function GodFather() {
               <TableCell>Nome</TableCell>
               <TableCell>CNPJ</TableCell>
               <TableCell>Contribuições</TableCell>
+              <TableCell>Selo</TableCell>
               <TableCell>Ações</TableCell>
             </TableRow>
           </TableHead>
@@ -103,6 +111,34 @@ export default function GodFather() {
                   <TableCell>{row.cnpj}</TableCell>
                   <TableCell>{row.contribution}</TableCell>
                   <TableCell>
+                    {row.contribution >= 10 ? (
+                      <Check color={theme.palette.success.main} />
+                    ) : (
+                      ""
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    <IconButton
+                      size="small"
+                      color="info"
+                      onClick={() => {
+                        if (row.contribution + 1 === 10)
+                          showNotification({
+                            type: "success",
+                            message: "Padrinho completou 10 contribuições",
+                          });
+                        setGodFathers((prev) =>
+                          prev.map((p) => {
+                            if (p.id === row.id) {
+                              return { ...p, contribution: p.contribution + 1 };
+                            }
+                            return p;
+                          })
+                        );
+                      }}
+                    >
+                      <DefaultIcons.AddIcon />
+                    </IconButton>
                     <IconButton
                       size="small"
                       color="info"

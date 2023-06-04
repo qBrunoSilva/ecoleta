@@ -8,8 +8,8 @@ export function Routes() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/" index element={<HomePage />} />
         <Route element={<FoodLayout />}>
-          <Route path="/" index element={<HomePage />} />
           <Route path="/produtos" element={<ProductsPage />} />
           <Route path="/padrinhos" element={<GodFather />} />
         </Route>
