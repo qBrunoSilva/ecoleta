@@ -94,7 +94,7 @@ export const createDefaultTheme = (theme: ITheme) =>
       },
     },
     typography: {
-      fontFamily: "Signika, sans-serif",
+      fontFamily: "Poppins, sans-serif",
       h1: {
         fontSize: "2.875rem",
       },
