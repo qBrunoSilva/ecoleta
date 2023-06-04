@@ -20,7 +20,6 @@ const MapComponent: React.FC<MapComponentProps> = ({ initialCoords }) => {
     L.marker([initialCoords[0] + 0.0002, initialCoords[1] - 0.001])
       .addTo(map)
       .bindPopup("Empresa 1");
-    // .openPopup();
 
     L.marker([initialCoords[0] + 0.008, initialCoords[1] + 0.0])
       .addTo(map)

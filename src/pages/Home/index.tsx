@@ -245,7 +245,7 @@ export default function HomePage() {
           mt={10}
           mb={3}
         >
-          Doações nos últimos meses
+          Empresas parceiras do projeto
         </Typography>
         <MapComponent initialCoords={[-13.8385, -56.0808]} />
       </Box>

@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
-import { LayoutWrapper } from "src/components/LayoutWrapper";
 import { AppBarComponent } from "./AppBar";
 export const DefaultProperties = {
   radius: 6,
