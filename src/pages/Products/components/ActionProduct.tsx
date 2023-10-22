@@ -4,6 +4,11 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
   Stack,
   TextField,
 } from "@mui/material";
@@ -73,6 +78,18 @@ export function ActionProduct({
             gap: 1.5,
           }}
         >
+          <FormControl  >
+      <FormLabel id="demo-radio-buttons-group-label">Tipo de anúncio</FormLabel>
+      <RadioGroup
+        aria-labelledby="demo-radio-buttons-group-label"
+        defaultValue="female"
+        name="radio-buttons-group"
+      >
+        <FormControlLabel value="female" control={<Radio />} label="Resíduo" />
+        <FormControlLabel value="male" control={<Radio />} label="Evento" /> 
+      </RadioGroup>
+    </FormControl>
+
           <TextField
             placeholder="Tipo de resíduo"
             label="Tipo de resíduo"
