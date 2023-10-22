@@ -4,7 +4,7 @@ import { CaretDown } from "@phosphor-icons/react"
 const QUESTIONS = [
   {
     question: 'Que serviços eco oferecemos?',
-    answer: 'Oferecemos uma gama de serviços ecológicos, incluindo reciclagem, gestão de resíduos e soluções de eficiência energética.',
+    answer: 'Facilitamos a conexão entre o comprador e o vendedor de resíduos, para que os resíduos possam ser reutilizados e reciclados.',
   }, 
   {
     question: 'Nossos serviços são sustentáveis?',
@@ -12,7 +12,7 @@ const QUESTIONS = [
   },
   {
     question: 'Como posso me beneficiar de seus serviços ecológicos?',
-    answer: 'Ao utilizar os nossos serviços ecológicos, pode reduzir a sua pegada de carbono, contribuir para uma economia circular e melhorar as credenciais de sustentabilidade da sua marca.',
+    answer: 'Ao utilizar os nossos serviços ecológicos, contribuindo para uma economia circular e melhorar as credenciais de sustentabilidade da sua marca.',
   }
 ]
 
