@@ -244,18 +244,8 @@ export default function HomePage() {
             e.id + ": " + e.formattedValue + " in Month: " + e.indexValue
           }
         />
-      </Box>
-      <Typography
-          variant="h4"
-          fontWeight={700}
-          textAlign="center"
-          alignSelf="center"
-          mt={10}
-          mb={3}
-        >
-          FAQ
-        </Typography>
-        <Faq />
+      </Box> 
+      <Faq />
       <Box width={"90%"} height={400}>
         <Typography
           variant="h4"
