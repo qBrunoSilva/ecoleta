@@ -4,6 +4,7 @@ import ProductsPage from "./pages/Products";
 import { Layout } from "./components/Layout";
 import ArrecadacaoPage from "./pages/Arrecadacao";
 import QueroDoarPage from "./pages/QueroDoar";
+import CadastroPage from "./pages/Cadastro";
 
 export function Routes() {
   return (
@@ -12,8 +13,9 @@ export function Routes() {
         <Route path="/" index element={<HomePage />} />
         <Route element={<Layout />}>
           <Route path="/produtos" element={<ProductsPage />} />
-          <Route path="/arrecadacao" element={<ArrecadacaoPage />} />
-          <Route path="/quero-doar" element={<QueroDoarPage />} />
+          <Route path="/catalogo" element={<ArrecadacaoPage />} />
+          <Route path="/comprar" element={<QueroDoarPage />} />
+          <Route path="/cadastro" element={<CadastroPage />} />
         </Route>
       </Switch>
     </BrowserRouter>
