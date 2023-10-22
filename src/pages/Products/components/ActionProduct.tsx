@@ -30,8 +30,9 @@ export function ActionProduct({
   const [product, setProduct] = useState<IProduct>({
     id: null,
     name: "",
-    minQuantity: 1,
-    quantity: 1,
+    peso: 1,
+    valor: 1,
+    valorTotal: 1,
   });
 
   useLayoutEffect(() => {
@@ -41,8 +42,9 @@ export function ActionProduct({
       setProduct({
         id: null,
         name: "",
-        minQuantity: 1,
-        quantity: 1,
+        peso: 1,
+        valor: 1,
+        valorTotal: 1,
       });
     }
   }, [open, data]);
@@ -72,8 +74,8 @@ export function ActionProduct({
           }}
         >
           <TextField
-            placeholder="Nome do produto"
-            label="Nome do produto"
+            placeholder="Tipo de resíduo"
+            label="Tipo de resíduo"
             fullWidth
             required
             value={product.name}
@@ -86,15 +88,15 @@ export function ActionProduct({
           />
           <Stack direction="row">
             <TextField
-              placeholder="Quantidade"
-              label="Quantidade"
+              placeholder="Peso"
+              label="Peso"
               fullWidth
               required
               type="number"
               inputProps={{
                 min: 0,
               }}
-              value={product.quantity}
+              value={product.peso}
               onChange={(e) => {
                 setProduct((prev) => ({
                   ...prev,
@@ -103,15 +105,15 @@ export function ActionProduct({
               }}
             />
             <TextField
-              placeholder="Quantidade mínima"
-              label="Quantidade mínima"
+              placeholder="Valor"
+              label="Valor"
               fullWidth
               required
               type="number"
               inputProps={{
                 min: 0,
               }}
-              value={product.minQuantity}
+              value={product.valor}
               onChange={(e) => {
                 setProduct((prev) => ({
                   ...prev,

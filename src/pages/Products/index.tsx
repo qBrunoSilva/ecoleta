@@ -25,17 +25,20 @@ import { FilePdf } from "@phosphor-icons/react";
 const PRODUCTS: IProduct[] = [
   {
     id: 1,
-    name: "Leite 1L",
-    minQuantity: 1,
-    quantity: 1,
+    name: "Aluminio",
+    peso: 23,
+    valor: 5.00,
   },
   {
     id: 2,
-    name: "Arroz 5Kg",
-    minQuantity: 1,
-    quantity: 1,
+    name: "Papelão",
+    peso: 38.9,
+    valor: 0.30,
   },
-];
+].map(product => ({
+  ...product,
+  valorTotal: product.peso * product.valor
+}));
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -66,7 +69,7 @@ export default function ProductsPage() {
             onClick={() => {
               generateProductPDF({
                 header: {
-                  nome: "Prefeitura Municipal de Nova Mutum - MT",
+                  nome: "ECOleta",
                   cnpj: "00.000.000/0000-00",
                 },
                 products,
@@ -91,8 +94,9 @@ export default function ProductsPage() {
           <TableHead>
             <TableRow>
               <TableCell>Nome</TableCell>
-              <TableCell>Quantidade</TableCell>
-              <TableCell>Quantidade mínima</TableCell>
+              <TableCell>Peso</TableCell>
+              <TableCell>Valor Unitário</TableCell>
+              <TableCell>Valor total</TableCell>
               <TableCell>Ações</TableCell>
             </TableRow>
           </TableHead>
@@ -106,18 +110,19 @@ export default function ProductsPage() {
                   <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell>{row.quantity}</TableCell>
-                  <TableCell>{row.minQuantity}</TableCell>
+                  <TableCell>{row.peso.toFixed(3)}</TableCell>
+                  <TableCell>{row.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</TableCell>
+                  <TableCell>{row.valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</TableCell>
                   <TableCell>
                     <IconButton
                       size="small"
                       color="info"
                       onClick={() => {
-                        if (row.quantity === 0) return;
+                        if (row.peso === 0) return;
                         setProducts((prev) =>
                           prev.map((p) => {
                             if (p.id === row.id) {
-                              return { ...p, quantity: p.quantity - 1 };
+                              return { ...p, quantity: p.peso - 1 };
                             }
                             return p;
                           })
