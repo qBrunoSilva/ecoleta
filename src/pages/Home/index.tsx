@@ -17,37 +17,45 @@ export default function HomePage() {
       Month: "Janeiro",
       Metal: 50,
       "Alumínio": 25,
-      "Plástico": 45
+      "Plástico": 45,
+      Outros: 23
     },
     {
       Month: "Fevereiro",
       Metal: 46,
       "Alumínio": 23,
-      "Plástico": 45
+      "Plástico": 45,
+      Outros: 19
     },
     {
       Month: "Julho",
       Metal: 40,
       "Alumínio": 20,
-      "Plástico": 45
+      "Plástico": 45,
+      Outros: 5
+
     },
     {
       Month: "Agosto",
       Metal: 122,
       "Alumínio": 60,
-      "Plástico": 45
+      "Plástico": 45,
+      Outros: 13
+
     },
     {
       Month: "Setembro",
       Metal: 175,
       "Alumínio": 68,
-      "Plástico": 45
+      "Plástico": 45,
+      Outros: 20 
     },
     {
       Month: "Outubro",
       Metal: 201,
       "Alumínio": 70,
-      "Plástico": 45
+      "Plástico": 45,
+      Outros: 50 
     },
   ];
 
@@ -66,8 +74,7 @@ export default function HomePage() {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        width="100%"
-        // bgcolor="info.main"
+        width="100%" 
         sx={{
           bgcolor: "#f8f5ee",
           color: "#086a35"
@@ -200,7 +207,7 @@ export default function HomePage() {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "Month",
+            legend: "Meses",
             legendPosition: "middle",
             legendOffset: 32,
           }}
