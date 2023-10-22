@@ -101,7 +101,12 @@ export default function HomePage() {
           Salvando o meio ambiente, uma escolha de cada vez com Ecoleta
         </Typography>
       </Box>
-      <Box display="flex" flexDirection="row" mt={1} width="70%">
+      <Box display="flex" flexDirection={
+        {
+          xs: "column",
+          md: "row"
+        }
+      } mt={1} width="70%">
         <Box
           sx={{
             width: "100%",
@@ -110,7 +115,7 @@ export default function HomePage() {
             placeItems: "center",
           }}
         >
-          <img src={Logo} width={400} height={400} />
+          <img src={Logo} width={"100%"} height={400} />
         </Box>
         <Box
           px={3}
