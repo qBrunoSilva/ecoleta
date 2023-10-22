@@ -1,4 +1,4 @@
-import { Box, Button, Card, Divider, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import selo from "src/assets/images/selo.png";
 import { ResponsiveBar } from "@nivo/bar";
 import MapComponent from "./components/Map";
@@ -10,20 +10,6 @@ import {
 } from "@phosphor-icons/react";
 import ResponsiveAppBar from "src/components/AppBarHome";
 
-const PRODUCTS = [
-  {
-    id: 1,
-    name: "Leite 1L",
-    arrecadado: 0,
-    quantity: 10,
-  },
-  {
-    id: 2,
-    name: "Arroz 5Kg",
-    arrecadado: 1,
-    quantity: 10,
-  },
-];
 
 export default function HomePage() {
   const data = [
@@ -38,30 +24,30 @@ export default function HomePage() {
       Limpeza: 23,
     },
     {
-      Month: "Março",
+      Month: "Julho",
       Alimentos: 40,
       Limpeza: 20,
     },
     {
-      Month: "Abril",
+      Month: "Agosto",
       Alimentos: 122,
       Limpeza: 60,
     },
     {
-      Month: "Maio",
+      Month: "Setembro",
       Alimentos: 175,
       Limpeza: 68,
     },
     {
-      Month: "Junho",
+      Month: "Outubro",
       Alimentos: 201,
       Limpeza: 70,
     },
   ];
+
   return (
     <Box
       sx={{
-        // pt: 8,
         pb: 6,
         height: "100%",
         display: "flex",
@@ -79,7 +65,7 @@ export default function HomePage() {
         py={10}
       >
         <Typography variant="h1" fontWeight={700} color="white" mt={2}>
-          Mercado do bem
+          Ecoleta
         </Typography>
         <Typography
           fontWeight={300}
@@ -94,55 +80,6 @@ export default function HomePage() {
           situação de vulnerabilidade social.
         </Typography>
       </Box>
-      <Typography
-        variant="h4"
-        fontWeight={700}
-        textAlign="center"
-        alignSelf="center"
-        mt={10}
-        mb={3}
-      >
-        Demanda da semana
-      </Typography>
-      <Box display="flex" flexDirection="row" gap={2} mb={2} mt={4}>
-        {PRODUCTS.map((p) => {
-          return (
-            <Card>
-              <Box
-                height={150}
-                width={300}
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="space-between"
-                p={2}
-              >
-                <Typography variant="h3" fontWeight={700}>
-                  {p.name}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  color="text.secondary"
-                  fontWeight={700}
-                >
-                  Arrecadado: {p.arrecadado}/{p.quantity}
-                </Typography>
-              </Box>
-            </Card>
-          );
-        })}
-      </Box>
-      <Button
-        sx={{
-          height: 70,
-          width: "70%",
-        }}
-        variant="contained"
-        href="/quero-doar"
-        fullWidth
-      >
-        Quero doar!
-      </Button>
       <Box width="70%">
         <Typography
           variant="h4"
