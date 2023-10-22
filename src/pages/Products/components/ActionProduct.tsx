@@ -64,7 +64,7 @@ export function ActionProduct({
 
   return (
     <Dialog open={open} maxWidth="xs">
-      <DialogTitle>{data ? "Editar" : "Novo"} produto</DialogTitle>
+      <DialogTitle>{data ? "Editar" : "Novo"} anúncio</DialogTitle>
       <form onSubmit={handleSubmit}>
         <DialogContent
           sx={{
@@ -89,7 +89,7 @@ export function ActionProduct({
           <Stack direction="row">
             <TextField
               placeholder="Peso"
-              label="Peso"
+              label="Peso (Kg)"
               fullWidth
               required
               type="number"
@@ -125,7 +125,7 @@ export function ActionProduct({
         </DialogContent>
         <DialogActions>
           <Button color="success" type="submit">
-            Salvar
+            Anunciar
           </Button>
           <Button onClick={() => setOpen(false)} variant="outlined">
             Cancelar

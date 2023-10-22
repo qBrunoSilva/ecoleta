@@ -9,8 +9,7 @@ import {
   YoutubeLogo,
 } from "@phosphor-icons/react";
 import ResponsiveAppBar from "src/components/AppBarHome";
-import { Faq } from "./components/Faq";
-
+import { Faq } from "./components/Faq"; 
 
 export default function HomePage() {
   const data = [
@@ -255,7 +254,7 @@ export default function HomePage() {
           mt={10}
           mb={3}
         >
-          Pontos de coleta
+          Pontos de vendas
         </Typography>
         <MapComponent initialCoords={[-15.5556, -56.0601]} />
       </Box>

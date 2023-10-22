@@ -60,7 +60,7 @@ export default function ProductsPage() {
         my={2}
       >
         <Typography variant="h3" fontWeight="bold">
-          Produtos
+          Meus anúncios
         </Typography>
         <Box display="flex" flexDirection="row" gap={1}>
           <Button
@@ -85,7 +85,7 @@ export default function ProductsPage() {
               setOpenAction(true);
             }}
           >
-            Adicionar produto
+            Anunciar
           </Button>
         </Box>
       </Box>
@@ -110,7 +110,7 @@ export default function ProductsPage() {
                   <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell>{row.peso.toFixed(3)}</TableCell>
+                  <TableCell>{row.peso.toFixed(3)} Kg</TableCell>
                   <TableCell>{row.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</TableCell>
                   <TableCell>{row.valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</TableCell>
                   <TableCell>

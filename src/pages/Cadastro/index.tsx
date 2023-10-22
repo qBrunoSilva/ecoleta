@@ -16,19 +16,21 @@ export default function CadastroPage() {
       <h1>Cadastro</h1>
 
       <Box display="flex" flexDirection="column" gap={1}>
-        <TextField label="Nome" variant="outlined" />
-        <TextField label="Email" variant="outlined" />
-        <TextField label="Senha" type="password" variant="outlined" />
-        <TextField label="Confirmação de Senha" type="password" variant="outlined" />
-        <Select
-          defaultValue=""
+      <Select
+          defaultValue="fisica"
           variant="outlined"
           label="Tipo de Pessoa"
         >
           <MenuItem value="">Selecione o tipo de pessoa</MenuItem>
-          <MenuItem value={"Física"}>Pessoa Física</MenuItem>
-          <MenuItem value={"Jurídica"}>Pessoa Jurídica</MenuItem>
+          <MenuItem value={"fisica"}>Pessoa Física</MenuItem>
+          <MenuItem value={"juridica"}>Pessoa Jurídica</MenuItem>
         </Select>
+        <TextField label="CPF" variant="outlined" />
+        <TextField label="Nome" variant="outlined" />
+        <TextField label="CEP" variant="outlined" />
+        <TextField label="Cidade" variant="outlined" />
+        <TextField label="Estado" variant="outlined" /> 
+        
         <Button
           variant="contained"
           onClick={() => {
