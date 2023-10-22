@@ -40,7 +40,7 @@ export async function generateProductPDF({ header, products }: Props) {
 
   autoTable(doc, {
     columns: ["Nome", "Quantidade", "Estoque mínimo"],
-    body: products.map((row) => [row.name, row.quantity, row.minQuantity]),
+    body: products.map((row: any) => [row.name, row.quantity, row.minQuantity]),
     margin: { top: space },
     styles: {
       fontSize: 8,
