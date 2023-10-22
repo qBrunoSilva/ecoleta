@@ -15,7 +15,7 @@ export const DefaultProperties = {
 // import { AppBarComponent } from "./AppBar";
 import { DrawerComponent } from "./Drawer";
 
-export function FoodLayout() {
+export function Layout() {
   const [open, setOpen] = useState(false);
 
   return (

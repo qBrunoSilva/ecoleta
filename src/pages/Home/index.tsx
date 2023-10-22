@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import selo from "src/assets/images/selo.png";
+import Logo from "src/assets/images/Ecoleta.svg";
 import { ResponsiveBar } from "@nivo/bar";
 import MapComponent from "./components/Map";
 import {
@@ -9,39 +9,46 @@ import {
   YoutubeLogo,
 } from "@phosphor-icons/react";
 import ResponsiveAppBar from "src/components/AppBarHome";
+import { Faq } from "./components/Faq";
 
 
 export default function HomePage() {
   const data = [
     {
       Month: "Janeiro",
-      Alimentos: 50,
-      Limpeza: 25,
+      Metal: 50,
+      "Alumínio": 25,
+      "Plástico": 45
     },
     {
       Month: "Fevereiro",
-      Alimentos: 46,
-      Limpeza: 23,
+      Metal: 46,
+      "Alumínio": 23,
+      "Plástico": 45
     },
     {
       Month: "Julho",
-      Alimentos: 40,
-      Limpeza: 20,
+      Metal: 40,
+      "Alumínio": 20,
+      "Plástico": 45
     },
     {
       Month: "Agosto",
-      Alimentos: 122,
-      Limpeza: 60,
+      Metal: 122,
+      "Alumínio": 60,
+      "Plástico": 45
     },
     {
       Month: "Setembro",
-      Alimentos: 175,
-      Limpeza: 68,
+      Metal: 175,
+      "Alumínio": 68,
+      "Plástico": 45
     },
     {
       Month: "Outubro",
-      Alimentos: 201,
-      Limpeza: 70,
+      Metal: 201,
+      "Alumínio": 70,
+      "Plástico": 45
     },
   ];
 
@@ -61,23 +68,26 @@ export default function HomePage() {
         flexDirection="column"
         alignItems="center"
         width="100%"
-        bgcolor="info.main"
+        // bgcolor="info.main"
+        sx={{
+          bgcolor: "#f8f5ee",
+          color: "#086a35"
+        }}
         py={10}
       >
-        <Typography variant="h1" fontWeight={700} color="white" mt={2}>
+        <Typography variant="h1" fontWeight={700} mt={2}>
           Ecoleta
         </Typography>
         <Typography
           fontWeight={300}
-          color="white"
+          sx={{
+            color: "#8bbd94"
+          }}
           textAlign="center"
           width="50%"
           mt={1}
         >
-          O Mercado do Bem é um projeto social com parceria com a Prefeitura de
-          Nova Mutum que visa ajudar as pessoas que mais precisam, através de
-          doações de Alimentos e produtos de higiene e Limpeza para famílias em
-          situação de vulnerabilidade social.
+          A Ecoleta é uma empresa ecologicamente correta que ajuda você a fazer a diferença no meio ambiente, uma escolha de cada vez. Fornecemos soluções convenientes para eliminação e reciclagem de resíduos para facilitar que indivíduos, empresas e comunidades salvem o planeta.
         </Typography>
       </Box>
       <Box width="70%">
@@ -89,10 +99,7 @@ export default function HomePage() {
           mt={5}
           mb={3}
         >
-          Seja você uma ONG, uma empresa social ou uma iniciativa independente,
-          o selo Bem é um símbolo poderoso que irá atrair atenção, despertar
-          emoções e inspirar confiança. Juntos, vamos construir um mundo mais
-          solidário, onde cada ação conta e faz a diferença!
+          Salvando o meio ambiente, uma escolha de cada vez com Ecoleta
         </Typography>
       </Box>
       <Box display="flex" flexDirection="row" mt={1} width="70%">
@@ -104,7 +111,7 @@ export default function HomePage() {
             placeItems: "center",
           }}
         >
-          <img src={selo} width={400} height={400} />
+          <img src={Logo} width={400} height={400} />
         </Box>
         <Box
           px={3}
@@ -115,26 +122,16 @@ export default function HomePage() {
           gap={2}
         >
           <Typography variant="body1" fontWeight={300}>
-            O selo <strong>Solidariedade em Ação</strong> é uma forma de
-            reconhecimento e certificação para organizações e projetos que se
-            dedicam à promoção da solidariedade. Ele desempenha um papel
-            importante por diversos motivos:
+            <strong>Ecoleta</strong> incentiva todos a serem mais conscientes do ponto de vista ambiental,
+            ajudando-os a reduzir o desperdício. Com a ecoleta, hoje é fácil reciclar seus
+            resíduos, tornando o mundo um lugar mais limpo e verde.
           </Typography>
-          <Typography variant="body2" fontWeight={300}>
-            <strong> &#x2022; Credibilidade:</strong> Ao exibir o selo em suas
-            comunicações e materiais, as organizações ganham credibilidade aos
-            olhos do público. O selo atesta que elas estão comprometidas em agir
-            de forma solidária e genuína, aumentando a confiança dos
-            stakeholders.
+          <Typography variant="body1" fontWeight={300}>
+            Somos apaixonados por
+            causar um impacto positivo no meio ambiente, oferecendo produtos e serviços sustentáveis ​​e inovadores.
+            Com nosso amplo conhecimento e experiência na indústria ecológica, nos esforçamos para ajudar indivíduos e empresas a adotarem práticas mais ecológicas. A nossa missão é criar um planeta mais limpo e saudável para as gerações futuras através do nosso compromisso com a sustentabilidade e o consumo responsável.
           </Typography>
-          <Typography variant="body2" fontWeight={300}>
-            <strong> &#x2022; Comunicação efetiva:</strong> O selo
-            "Solidariedade em Ação" é um símbolo visual poderoso que comunica
-            instantaneamente o compromisso de uma organização com a
-            solidariedade. Ele permite uma comunicação clara e rápida,
-            transmitindo aos stakeholders o propósito e os valores da
-            organização.
-          </Typography>
+          
         </Box>
       </Box>
       <Typography
@@ -145,13 +142,14 @@ export default function HomePage() {
         mt={10}
         mb={3}
       >
-        Doações nos últimos meses
+        Coletas nos últimos meses
       </Typography>
       <Box width={"90%"} height={400}>
         <ResponsiveBar
           data={data}
-          // keys={["Alimentos", "Limpeza", "Higiene", "Outros"]}
-          keys={["Alimentos", "Limpeza"]}
+          keys={["Metal", "Alumínio", "Plástico",
+            // "Papel", "Vidro"
+          ]}
           indexBy="Month"
           margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
           padding={0.3}
@@ -168,6 +166,15 @@ export default function HomePage() {
               size: 4,
               padding: 1,
               stagger: true,
+            },
+            {
+              id: "lines",
+              type: "patternLines",
+              background: "inherit",
+              color: "#eed312",
+              rotation: -45,
+              lineWidth: 6,
+              spacing: 10,
             },
             {
               id: "lines",
@@ -197,7 +204,7 @@ export default function HomePage() {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "Doações",
+            legend: "Coletas",
             legendPosition: "middle",
             legendOffset: -40,
           }}
@@ -238,7 +245,17 @@ export default function HomePage() {
           }
         />
       </Box>
-
+      <Typography
+          variant="h4"
+          fontWeight={700}
+          textAlign="center"
+          alignSelf="center"
+          mt={10}
+          mb={3}
+        >
+          FAQ
+        </Typography>
+        <Faq />
       <Box width={"90%"} height={400}>
         <Typography
           variant="h4"
@@ -248,39 +265,45 @@ export default function HomePage() {
           mt={10}
           mb={3}
         >
-          Empresas parceiras do projeto
+          Pontos de coleta
         </Typography>
-        <MapComponent initialCoords={[-13.8385, -56.0808]} />
+        <MapComponent initialCoords={[-15.5556, -56.0601]} />
       </Box>
       <Box
         display="flex"
         flexDirection="column"
         alignItems="center"
         justifyContent="flex-end"
-        width="100%"
-        bgcolor="info.main"
+        sx={{
+          bgcolor: "#f8f5ee"
+        }}
+        width={"100%"}
         py={10}
         mt={7}
       >
-        <Typography my={2} variant="h3" fontWeight={700} color="white">
+        <Typography my={2} variant="h3" fontWeight={700}
+          sx={{
+            color: "#086a35"
+          }}
+        >
           Fale conosco
         </Typography>
         <Box display="flex" flexDirection="row" gap={2}>
-          <TwitterLogo size={"3rem"} weight="duotone" color="white" />
-          <FacebookLogo size={"3rem"} weight="duotone" color="white" />
-          <InstagramLogo size={"3rem"} weight="duotone" color="white" />
-          <YoutubeLogo size={"3rem"} weight="duotone" color="white" />
+          <TwitterLogo size={"3rem"} weight="duotone" color="#086a35" />
+          <FacebookLogo size={"3rem"} weight="duotone" color="#086a35" />
+          <InstagramLogo size={"3rem"} weight="duotone" color="#086a35" />
+          <YoutubeLogo size={"3rem"} weight="duotone" color="#086a35" />
         </Box>
       </Box>
       <Box
         display="flex"
         flexDirection="column"
         alignItems="center"
-        justifyContent="flex-end"
+        justifyContent="flex-end" 
         mt={1}
       >
         <Typography color="text.secondary" fontWeight={300}>
-          &copy; {new Date().getFullYear()} História do Bem. Todos os direitos
+          &copy; {new Date().getFullYear()} Ecoleta. Todos os direitos
           reservados.
         </Typography>
       </Box>

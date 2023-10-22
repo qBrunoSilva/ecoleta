@@ -21,9 +21,20 @@ const MapComponent: React.FC<MapComponentProps> = ({ initialCoords }) => {
       .addTo(map)
       .bindPopup("Empresa 1");
 
-    L.marker([initialCoords[0] + 0.008, initialCoords[1] + 0.0])
+    L.marker([initialCoords[0] + 0.02, initialCoords[1] + 0.0])
       .addTo(map)
       .bindPopup("Empresa 2")
+      .openPopup();
+
+    L.marker([initialCoords[0] + 0.018, initialCoords[1] + 0.03])
+      .addTo(map)
+      .bindPopup("Empresa 3")
+      .openPopup();
+
+
+    L.marker([initialCoords[0] - 0.02, initialCoords[1] + 0.03])
+      .addTo(map)
+      .bindPopup("Empresa 4")
       .openPopup();
 
     // Lembre-se de limpar o mapa quando o componente for desmontado

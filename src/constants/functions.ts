@@ -1,4 +1,4 @@
-export function formataCPF(v: string): string {
+export function formatCPF(v: string): string {
   v = v.replace(/\D/g, "");
   v = v.replace(/(\d{3})(\d)/, "$1.$2");
   v = v.replace(/(\d{3})(\d)/, "$1.$2");
@@ -6,7 +6,7 @@ export function formataCPF(v: string): string {
   return v.substring(0, 14);
 }
 
-export function formataCNPJ(v: string): string {
+export function formatCNPJ(v: string): string {
   v = v.replace(/\D/g, "");
   v = v.replace(/^(\d{2})(\d)/, "$1.$2");
   v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
